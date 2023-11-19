@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import PageLayout from "../../layouts/page-layuot";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 export default function Main() {
-  const [user, setUser] = useState(window.localStorage.getItem("user"));
+  const [user, setUser] = useLocalStorage("user");
+
+  const exitAccount = () => setUser("");
 
   return (
     <PageLayout>
@@ -16,6 +19,7 @@ export default function Main() {
       ) : (
         <>
           <p>Вы зашли в аккаунт {user}</p>
+          <button onClick={exitAccount}>Выйти</button>
         </>
       )}
     </PageLayout>
