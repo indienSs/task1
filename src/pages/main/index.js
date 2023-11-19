@@ -5,7 +5,7 @@ import { useLocalStorage } from "../../hooks/useLocalStorage";
 export default function Main() {
   const [user, setUser] = useLocalStorage("user");
 
-  const exitAccount = () => setUser("");
+  const exitAccount = () => setUser(null);
 
   return (
     <PageLayout>
